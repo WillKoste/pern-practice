@@ -21,6 +21,7 @@ export default function(state = inititalState, action){
       return {
         ...state,
         products: [],
+        product: null,
         loading: false,
         error: payload
       }

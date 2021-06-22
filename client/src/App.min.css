@@ -1,1 +1,1 @@
-main{min-height:80vh}.products-grid{display:-ms-grid;display:grid;-ms-grid-columns:(1fr)[3];grid-template-columns:repeat(3, 1fr);gap:1.3rem;margin:2rem 0}
+main{min-height:80vh}.form{max-width:750px}i.fas.fa-star,i.fas.fa-star-half{color:#ffd900}.products-grid{display:-ms-grid;display:grid;-ms-grid-columns:(1fr)[3];grid-template-columns:repeat(3, 1fr);gap:1.3rem;margin:2rem 0}@media (max-width: 800px){.products-grid{-ms-grid-columns:(1fr)[2];grid-template-columns:repeat(2, 1fr)}}@media (max-width: 600px){.products-grid{-ms-grid-columns:1fr;grid-template-columns:1fr}}

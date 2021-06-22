@@ -1,12 +1,24 @@
 main {
-  min-height: 80vh;
+	min-height: 80vh;
+}
+
+.form {
+	max-width: 750px;
+}
+
+i.fas.fa-star,
+i.fas.fa-star-half {
+	color: rgb(255, 217, 0);
 }
 
 // PRODUCTS
 
 .products-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1.3rem;
-  margin: 2rem 0;
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 1.3rem;
+	margin: 2rem 0;
 }
+
+@import 'tablet';
+@import 'mobile';

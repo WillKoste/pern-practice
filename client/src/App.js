@@ -9,6 +9,8 @@ import Footer from './components/layout/Footer'
 import Home from './components/screens/home/Home'
 import Cart from './components/screens/cart/Cart'
 import Login from './components/screens/login/Login'
+import Register from './components/screens/register/Register'
+import Product from './components/screens/product/Product'
 
 const App = () => {
   return (
@@ -22,6 +24,8 @@ const App = () => {
             <Route exact path="/" component={Home} />
             <Route exact path="/cart" component={Cart} />
             <Route exact path="/login" component={Login} />
+            <Route exact path="/register" component={Register} />
+            <Route exact path="/products/:productId" component={Product} />
           </Switch>
         </div>
       </main>
