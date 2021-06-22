@@ -1,6 +1,8 @@
 import React from 'react'
 import './App.min.css'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import {Provider} from 'react-redux'
+import store from './store'
 
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
@@ -10,7 +12,8 @@ import Login from './components/screens/login/Login'
 
 const App = () => {
   return (
-    <Router>
+    <Provider store={store}>
+      <Router>
       <div>
       <Navbar />
       <main className="py-3">
@@ -25,6 +28,7 @@ const App = () => {
       <Footer />
     </div>
     </Router>
+    </Provider>
   );
 }
 

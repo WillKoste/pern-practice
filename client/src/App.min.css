@@ -1,1 +1,1 @@
-main{min-height:80vh}
+main{min-height:80vh}.products-grid{display:-ms-grid;display:grid;-ms-grid-columns:(1fr)[3];grid-template-columns:repeat(3, 1fr);gap:1.3rem;margin:2rem 0}
