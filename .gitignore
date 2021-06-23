@@ -4,6 +4,7 @@ client/node_modules/
 .env
 *.env
 
-doc/
+docs/
+jsdoc.json
 
 client/build/

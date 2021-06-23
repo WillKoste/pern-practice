@@ -7,21 +7,29 @@
 		"start": "node server",
 		"server": "nodemon server",
 		"client": "npm run start --prefix client",
-		"dev": "concurrently \"npm run server\" \"npm run client\""
+		"dev": "concurrently \"npm run server\" \"npm run client\"",
+		"doc": "jsdoc -c jsdoc.json",
+		"heroku-postbuild": "npm install --prefix client && npm run build --prefix client"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"dependencies": {
+		"bcryptjs": "^2.4.3",
 		"colors": "^1.4.0",
 		"cors": "^2.8.5",
 		"dotenv": "^10.0.0",
 		"express": "^4.17.1",
+		"express-validator": "^6.12.0",
+		"jsonwebtoken": "^8.5.1",
 		"morgan": "^1.10.0",
 		"pg": "^8.6.0"
 	},
 	"devDependencies": {
+		"better-docs": "^2.3.2",
 		"concurrently": "^6.2.0",
+		"docdash": "^1.2.0",
+		"jsdoc-route-plugin": "^0.1.0",
 		"nodemon": "^2.0.7"
 	}
 }
