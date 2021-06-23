@@ -2,4 +2,17 @@
 	.products-grid {
 		grid-template-columns: repeat(2, 1fr);
 	}
+
+	.product-info {
+		flex-direction: column;
+		align-items: center;
+
+		img {
+			max-width: 90%;
+		}
+
+		.info-body {
+			margin: 1.2rem 0;
+		}
+	}
 }

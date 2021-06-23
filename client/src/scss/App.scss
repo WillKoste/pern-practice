@@ -18,6 +18,37 @@ i.fas.fa-star-half {
 	grid-template-columns: repeat(3, 1fr);
 	gap: 1.3rem;
 	margin: 2rem 0;
+
+	.product-item {
+		a {
+			color: #fff;
+			text-decoration: none;
+		}
+	}
+}
+
+// PRODUCT
+
+.rating {
+	div {
+		display: inline;
+	}
+	a {
+		display: inline;
+		text-decoration: none;
+		margin: 0 0.35rem;
+		font-size: 0.85rem;
+		color: #333;
+	}
+}
+
+.product-info {
+	display: flex;
+	margin: 0.5rem 0;
+
+	img {
+		max-width: 60%;
+	}
 }
 
 @import 'tablet';

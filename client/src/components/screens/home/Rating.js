@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 
 const Rating = ({value, text, prodKey}) => {
 	return (
-		<div>
+		<div className='rating'>
 			<div className='stars mt-2'>
 				<span>
 					<i className={value >= 1 ? 'fas fa-star' : value >= 0.5 ? 'fas fa-star-half' : ''}></i>
