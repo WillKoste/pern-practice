@@ -3,6 +3,7 @@ import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS} 
 const inititalState = {
 	users: [],
 	user: null,
+	isAuthenticated: null,
 	loading: true,
 	error: null
 };
@@ -16,7 +17,8 @@ export default function (state = inititalState, action) {
 			return {
 				...state,
 				loading: false,
-				user: payload
+				user: payload,
+				isAuthenticated: true
 			};
 		case AUTH_ERROR:
 		case LOGIN_FAIL:
@@ -26,6 +28,7 @@ export default function (state = inititalState, action) {
 				loading: false,
 				users: [],
 				user: null,
+				isAuthenticated: null,
 				error: payload
 			};
 		default:

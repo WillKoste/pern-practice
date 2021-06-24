@@ -1,6 +1,10 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {login} from '../../../actions/users';
+import {Redirect} from 'react-router-dom';
 
-const Login = () => {
+const Login = ({login, usersRed: {user, loading, isAuthenticated}}) => {
 	const [formData, setFormData] = useState({
 		email: '',
 		password: ''
@@ -18,10 +22,14 @@ const Login = () => {
 		if (email === '' || password === '') {
 			alert('Please fill out all fields');
 		} else {
-			alert(`Email: ${email}, Password: ${password}`);
 			setFormData({email: '', password: ''});
+			login(formData);
 		}
 	};
+
+	if (isAuthenticated) {
+		return <Redirect />;
+	}
 
 	return (
 		<div>
@@ -41,4 +49,13 @@ const Login = () => {
 	);
 };
 
-export default Login;
+Login.propTypes = {
+	usersRed: PropTypes.object.isRequired,
+	login: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	usersRed: state.usersRed
+});
+
+export default connect(mapStateToProps, {login})(Login);

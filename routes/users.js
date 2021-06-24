@@ -122,7 +122,11 @@ router.post('/register', [check('name', 'Name is required').not().isEmpty(), che
 				res.status(201).json({token});
 			}
 		});
-	} catch (err1) {
+	} catch (err) {
+		if (err.constraint === 'users_email_key') {
+			return res.status(400).json({success: false, data: `The email address: ${email} is already in use- please try again.`});
+		}
+
 		console.error(err);
 		res.status(500).json({success: false, data: 'Server Error'});
 	}
