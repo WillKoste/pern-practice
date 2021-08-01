@@ -5,6 +5,7 @@ const {pool} = require('../config/pg');
 const {check, validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const auth = require('../middleware/auth');
 
 /**
 	@name Get Logged In User
@@ -13,9 +14,11 @@ const jwt = require('jsonwebtoken');
 	@async
 	@route {GET} /api/v1/users/me
 */
-router.get('/me', async (req, res) => {
+router.get('/me', auth, async (req, res) => {
 	try {
-		res.send('Users route');
+		const user = await pool.query(`SELECT name, email, id FROM users WHERE id = ${req.user.id}`);
+
+		res.json({success: true, user: user.rows[0]});
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({success: false, data: 'Server Error'});
@@ -97,7 +100,7 @@ router.post('/register', [check('name', 'Name is required').not().isEmpty(), che
 			return res.status(400).json({success: false, data: `The email address: ${email} is already in use- please try again.`});
 		}
 
-		await pool.query(`INSERT INTO users (name, email, password, is_admin) VALUES ($1, $2, $3, $4)`, [name, email, password, isAdmin]);
+		await pool.query(`INSERT INTO users (name, email, password, is_admin) VALUES ($1, $2, $3, false)`, [name, email, password]);
 
 		const salt = await bcrypt.genSalt(10);
 

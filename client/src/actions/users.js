@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS} from './types';
+import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED} from './types';
 import setAuthToken from '../utils/setAuthToken';
 
 export const loadUser = () => async (dispatch) => {
@@ -9,6 +9,11 @@ export const loadUser = () => async (dispatch) => {
 
 	try {
 		const res = await axios.get('/api/v1/users/me');
+
+		dispatch({
+			type: USER_LOADED,
+			payload: res.data.user
+		});
 	} catch (err) {
 		console.error(err);
 		dispatch({
@@ -29,6 +34,8 @@ export const login = (formData) => async (dispatch) => {
 		const body = JSON.stringify(formData);
 
 		const res = await axios.post(`/api/v1/users/login`, body, config);
+
+		console.log(res.data);
 
 		dispatch({
 			type: LOGIN_SUCCESS,

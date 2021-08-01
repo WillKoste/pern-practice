@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import './App.min.css';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
+import {loadUser} from './actions/users';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -12,8 +13,17 @@ import Login from './components/screens/login/Login';
 import Register from './components/screens/register/Register';
 import Product from './components/screens/product/Product';
 import NotFound from './components/layout/NotFound';
+import setAuthToken from './utils/setAuthToken';
+
+if (localStorage.token) {
+	setAuthToken(localStorage.token);
+}
 
 const App = () => {
+	useEffect(() => {
+		store.dispatch(loadUser());
+	}, []);
+
 	return (
 		<Provider store={store}>
 			<Router>
