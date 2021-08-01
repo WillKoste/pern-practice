@@ -5,8 +5,10 @@ dotenv.config({path: './config/config.env'});
 const morgan = require('morgan');
 const cors = require('cors');
 const colors = require('colors');
+const {connectDb} = require('./config/pg');
 
 const app = express();
+connectDb();
 
 if (process.env.NODE_ENV === 'development') {
 	app.use(morgan('dev'));

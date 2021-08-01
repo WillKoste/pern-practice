@@ -1,7 +1,7 @@
 /** @namespace UsersRoutes */
 const express = require('express');
 const router = express.Router();
-const pool = require('../config/pg');
+const {pool} = require('../config/pg');
 const {check, validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
