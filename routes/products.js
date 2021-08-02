@@ -44,7 +44,12 @@ router.post('/', [check('name', 'Product name is required').not().isEmpty(), che
 		return res.status(400).json({success: false, errors: errors.array()});
 	}
 
+	const {name, image, description, brand, category, price, count_in_stock, rating, num_reviews} = req.body;
+
 	try {
+		const product = await pool.query(`INSERT INTO products (name, image, description, brand, category, price, count_in_stock, rating, num_reviews) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9)`, [name, image, description, brand, category, price, count_in_stock, rating, num_reviews]);
+
+		res.status(201).json({success: true, product: product.rows[0]});
 	} catch (err) {
 		console.error(err);
 		res.status(500).json({success: false, data: 'Server Error'});
