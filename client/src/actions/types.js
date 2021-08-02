@@ -14,3 +14,11 @@ export const REGISTER_SUCCESS = 'REGISTER_SUCCESS';
 export const REGISTER_FAIL = 'REGISTER_FAIL';
 export const AUTH_ERROR = 'AUTH_ERROR';
 export const USER_LOADED = 'USER_LOADED';
+export const USER_LOGOUT = 'USER_LOGOUT';
+
+export const CART_ADD_ITEM = 'CART_ADD_ITEM';
+export const CART_REMOVE_ITEM = 'CART_REMOVE_ITEM';
+export const CART_ERROR = 'CART_ERROR';
+export const CLEAR_CART = 'CLEAR_CART';
+export const SAVE_SHIPPING_INFO = 'SAVE_SHIPPING_INFO';
+export const SAVE_PAYMENT_INFO = 'SAVE_PAYMENT_INFO';

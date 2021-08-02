@@ -1,4 +1,4 @@
-import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED} from '../actions/types';
+import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, USER_LOGOUT} from '../actions/types';
 
 const inititalState = {
 	users: [],
@@ -31,6 +31,7 @@ export default function (state = inititalState, action) {
 		case AUTH_ERROR:
 		case LOGIN_FAIL:
 		case REGISTER_FAIL:
+		case USER_LOGOUT:
 			return {
 				...state,
 				loading: false,

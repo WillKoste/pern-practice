@@ -4,6 +4,9 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import {Provider} from 'react-redux';
 import store from './store';
 import {loadUser} from './actions/users';
+import setAuthToken from './utils/setAuthToken';
+import PrivateRoute from './utils/PrivateRoute';
+import AdminRoute from './utils/AdminRoute';
 
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
@@ -13,7 +16,7 @@ import Login from './components/screens/login/Login';
 import Register from './components/screens/register/Register';
 import Product from './components/screens/product/Product';
 import NotFound from './components/layout/NotFound';
-import setAuthToken from './utils/setAuthToken';
+import Admin from './components/layout/Admin';
 
 if (localStorage.token) {
 	setAuthToken(localStorage.token);
@@ -37,6 +40,7 @@ const App = () => {
 								<Route exact path='/login' component={Login} />
 								<Route exact path='/register' component={Register} />
 								<Route exact path='/products/:productId' component={Product} />
+								<AdminRoute exact path='/admin' component={Admin} />
 								<Route component={NotFound} />
 							</Switch>
 						</div>

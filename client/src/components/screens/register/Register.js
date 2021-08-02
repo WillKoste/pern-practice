@@ -1,6 +1,9 @@
 import React, {useState} from 'react';
+import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
+import {registerUser} from '../../../actions/users';
 
-const Register = () => {
+const Register = ({registerUser}) => {
 	const [formData, setFormData] = useState({
 		name: '',
 		email: '',
@@ -52,4 +55,13 @@ const Register = () => {
 	);
 };
 
-export default Register;
+Register.propTypes = {
+	usersRed: PropTypes.object.isRequired,
+	registerUser: PropTypes.func.isRequired
+};
+
+const mapStateToProps = (state) => ({
+	usersRed: state.usersRed
+});
+
+export default connect(mapStateToProps, {registerUser})(Register);

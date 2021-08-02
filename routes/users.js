@@ -16,7 +16,7 @@ const auth = require('../middleware/auth');
 */
 router.get('/me', auth, async (req, res) => {
 	try {
-		const user = await pool.query(`SELECT name, email, id FROM users WHERE id = ${req.user.id}`);
+		const user = await pool.query(`SELECT name, email, id, is_admin FROM users WHERE id = ${req.user.id}`);
 
 		res.json({success: true, user: user.rows[0]});
 	} catch (err) {

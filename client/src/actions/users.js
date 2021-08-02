@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED} from './types';
+import {LOGIN_FAIL, LOGIN_SUCCESS, AUTH_ERROR, REGISTER_FAIL, REGISTER_SUCCESS, USER_LOADED, USER_LOGOUT} from './types';
 import setAuthToken from '../utils/setAuthToken';
 
 export const loadUser = () => async (dispatch) => {
@@ -50,4 +50,37 @@ export const login = (formData) => async (dispatch) => {
 			payload: err
 		});
 	}
+};
+
+export const registerUser = (formData) => async (dispatch) => {
+	try {
+		const config = {
+			headers: {
+				'Content-Type': 'application/json'
+			}
+		};
+		const body = JSON.stringify(formData);
+
+		const res = await axios.post(`/api/v1/users/register`, body, config);
+
+		dispatch({
+			type: REGISTER_SUCCESS,
+			payload: res.data
+		});
+
+		dispatch(loadUser());
+	} catch (err) {
+		console.error(err);
+		dispatch({
+			type: REGISTER_FAIL,
+			payload: err.response
+		});
+	}
+};
+
+export const logoutUser = () => async (dispatch) => {
+	localStorage.removeItem('token');
+	dispatch({
+		type: USER_LOGOUT
+	});
 };
