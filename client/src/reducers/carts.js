@@ -3,7 +3,8 @@ import {CART_ERROR, CART_REMOVE_ITEM, CART_ADD_ITEM, SAVE_SHIPPING_INFO, SAVE_PA
 const inititalState = {
 	cartItems: localStorage.getItem('cartItems') ? JSON.parse(localStorage.getItem('cartItems')) : [],
 	shippingAddress: localStorage.getItem('shippingAddress') ? JSON.parse(localStorage.getItem('shippingAddress')) : {},
-	paymentMethod: localStorage.getItem('paymentMethod') ? JSON.parse(localStorage.getItem('paymentMethod')) : ''
+	paymentMethod: localStorage.getItem('paymentMethod') ? JSON.parse(localStorage.getItem('paymentMethod')) : '',
+	error: null
 };
 
 export default function (state = inititalState, action) {
@@ -51,6 +52,11 @@ export default function (state = inititalState, action) {
 				cartItems: [],
 				shippingAddress: {},
 				paymentMethod: ''
+			};
+		case CART_ERROR:
+			return {
+				...state,
+				error: payload
 			};
 		default:
 			return state;
