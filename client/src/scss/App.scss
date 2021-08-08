@@ -1,18 +1,44 @@
-main {
-	min-height: 80vh;
-}
-
-.form {
-	max-width: 750px;
-}
+@import 'config';
+@import 'utils';
 
 i.fas.fa-star,
 i.fas.fa-star-half {
 	color: rgb(255, 217, 0);
 }
 
-// PRODUCTS
+.navbar {
+	display: flex;
 
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: 0;
+
+		img {
+			width: 75px;
+		}
+
+		ul {
+			display: flex;
+
+			li {
+				margin: 0 0.2rem;
+
+				a {
+					padding: 0.5rem;
+
+					&:visited {
+						color: inherit;
+					}
+				}
+			}
+		}
+	}
+}
+
+// PRODUCTS
 .products-grid {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);

@@ -32,19 +32,17 @@ const App = () => {
 			<Router>
 				<div>
 					<Navbar />
-					<main className='py-3'>
-						<div className='container'>
-							<Switch>
-								<Route exact path='/' component={Home} />
-								<Route exact path='/cart' component={Cart} />
-								<Route exact path='/login' component={Login} />
-								<Route exact path='/register' component={Register} />
-								<Route exact path='/products/:productId' component={Product} />
-								<AdminRoute exact path='/admin' component={Admin} />
-								<Route component={NotFound} />
-							</Switch>
-						</div>
-					</main>
+					<div className='container'>
+						<Switch>
+							<Route exact path='/' component={Home} />
+							<Route exact path='/cart' component={Cart} />
+							<Route exact path='/login' component={Login} />
+							<Route exact path='/register' component={Register} />
+							<Route exact path='/products/:productId' component={Product} />
+							<AdminRoute exact path='/admin' component={Admin} />
+							<Route component={NotFound} />
+						</Switch>
+					</div>
 					<Footer />
 				</div>
 			</Router>

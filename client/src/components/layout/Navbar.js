@@ -3,17 +3,15 @@ import PropTypes from 'prop-types';
 import {Link, NavLink} from 'react-router-dom';
 import {connect} from 'react-redux';
 import {logoutUser} from '../../actions/users';
+import Logo from '../../images/Logo.svg';
 
 const Navbar = ({logoutUser, usersRed: {isAuthenticated, loading, user}}) => {
 	return (
-		<nav className='navbar navbar-expand-lg navbar-light bg-light'>
+		<nav className='navbar navbar-expand-lg bg-primary'>
 			<div className='container'>
 				<Link to='/' className='navbar-brand'>
-					<h2>E-Store</h2>
+					<img src={Logo} alt='Estore logo' />
 				</Link>
-				<button class='navbar-toggler' type='button' data-toggle='collapse' data-target='#navbarNavAltMarkup' aria-controls='navbarNavAltMarkup' aria-expanded='false' aria-label='Toggle navigation'>
-					<span class='navbar-toggler-icon'></span>
-				</button>
 				<div className='collapse navbar-collapse' id='navbarNavAltMarkup'>
 					<ul className='navbar-nav'>
 						<li className='nav-item'>
