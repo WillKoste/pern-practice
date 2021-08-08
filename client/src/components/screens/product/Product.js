@@ -11,7 +11,7 @@ const Product = ({match, getProduct, productRed: {product, loading}}) => {
 	}, [getProduct, match.params.productId]);
 
 	return (
-		<div className='bg-dark p-3 rounded'>
+		<div className='bg-dark p-2 rounded'>
 			<Link to='/' className='btn btn-success my-2'>
 				Go Back
 			</Link>
@@ -22,8 +22,9 @@ const Product = ({match, getProduct, productRed: {product, loading}}) => {
 					<img src={`${window.location.origin}/${product.image}`} alt={product.name} className='img-fluid rounded' />
 					<div className='px-3 info-body'>
 						<h2>{product.name}</h2>
-						<Rating prodKey={product.id} value={product.rating} text={product.numreviews} />
+						<Rating prodKey={product.id} value={product.rating} text={product.num_reviews} />
 						<p className='lead text-light'>{product.description}</p>
+						<button className='btn btn-block my-1 btn-secondary'>Add To Cart</button>
 					</div>
 				</div>
 			)}

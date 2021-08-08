@@ -25,10 +25,122 @@ img {
 	max-width: $max-width;
 	margin: auto;
 	padding: 1rem;
+	overflow: hidden;
+}
+
+.x-large {
+	font-size: 4rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+.large {
+	font-size: 3rem;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+.lead {
+	font-size: 1.2rem;
+	line-height: 1.35rem;
+}
+
+.round-img {
+	border-radius: 50%;
 }
 
 .bg {
 	&-primary {
 		@include set-background($primary-color);
+	}
+	&-secondary {
+		@include set-background($secondary-color);
+	}
+	&-highlight {
+		@include set-background($highlight-color);
+	}
+	&-success {
+		@include set-background($success-color);
+	}
+	&-danger {
+		@include set-background($danger-color);
+	}
+}
+
+.text {
+	&-primary {
+		color: $primary-color;
+	}
+	&-secondary {
+		color: $secondary-color;
+	}
+	&-highlight {
+		color: $highlight-color;
+	}
+	&-success {
+		color: $success-color;
+	}
+	&-danger {
+		color: $danger-color;
+	}
+}
+
+.btn {
+	display: inline-block;
+	background: $light-color;
+	color: #333;
+	padding: 0.7rem;
+	cursor: pointer;
+	outline: none;
+	border: none;
+	transition: all 0.2s ease;
+	border-radius: 4px;
+
+	&.btn-primary {
+		@include set-background($primary-color);
+		&:hover {
+			background: lighten($primary-color, 5%);
+		}
+	}
+	&.btn-secondary {
+		@include set-background($secondary-color);
+		&:hover {
+			background: lighten($secondary-color, 5%);
+		}
+	}
+	&.btn-highlight {
+		@include set-background($highlight-color);
+		&:hover {
+			background: lighten($highlight-color, 5%);
+		}
+	}
+	&.btn-success {
+		@include set-background($success-color);
+		&:hover {
+			background: lighten($success-color, 5%);
+		}
+	}
+	&.btn-danger {
+		@include set-background($danger-color);
+		&:hover {
+			background: lighten($danger-color, 5%);
+		}
+	}
+
+	&.btn-block {
+		display: block;
+		width: 100%;
+	}
+}
+
+.table {
+	th,
+	td {
+		padding: 1rem;
+		text-align: left;
+	}
+
+	th {
+		background: $light-color;
 	}
 }

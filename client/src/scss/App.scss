@@ -46,16 +46,35 @@ i.fas.fa-star-half {
 	margin: 2rem 0;
 
 	.product-item {
-		a {
-			color: #fff;
-			text-decoration: none;
+		background: #c2c2c2;
+		border-radius: 4px;
+		padding: 1rem;
+		display: flex;
+		flex-direction: column;
+
+		.card-img-top {
+			border-radius: 4px;
+		}
+
+		h4 {
+			margin-bottom: 0.6rem;
+		}
+
+		.card-bottom {
+			display: flex;
+			align-items: flex-end;
+			justify-content: space-between;
+
+			.btn {
+				margin-top: 0.85rem;
+			}
 		}
 	}
 }
 
 // PRODUCT
-
 .rating {
+	margin-bottom: 1rem;
 	div {
 		display: inline;
 	}
@@ -72,9 +91,17 @@ i.fas.fa-star-half {
 	display: flex;
 	margin: 0.5rem 0;
 
+	h2 {
+		margin-bottom: 0.75rem;
+	}
+
 	img {
 		max-width: 60%;
 	}
+}
+
+.footer {
+	text-align: center;
 }
 
 @import 'tablet';
